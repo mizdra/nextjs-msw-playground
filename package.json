@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node --require ./scripts/polyfill-fetch.js ./node_modules/.bin/next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,5 +16,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "msw": "^0.0.0-fetch.rc-14",
+    "node-fetch": "^2.6.11"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
