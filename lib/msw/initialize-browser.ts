@@ -16,4 +16,15 @@ const worker = setupWorker(...handlers)
 // msw の初期化よりも前にリクエストが発生しないことを祈りましょう。
 worker.start({
   onUnhandledRequest: 'bypass',
+  serviceWorker: {
+    // next.config.js の `basePath` を利用している場合は、このオプションも必要
+    //
+    // ところで `basePath` を利用しているプロジェクトで msw を動かすと、たまに chrome が無限リロードされる不具合がある。
+    // 原因は不明だが、「ServiceWorker のインストール中にページをリロードすると無限リロード状態に陥る」こと、
+    // そして chrome devtools を使って ServiceWorker をアンインストールすると直るという対症療法が存在することが分かっている。
+    options: {
+      scope: '/base/',
+    },
+    url: '/base/mockServiceWorker.js',
+  },
 })
