@@ -14,4 +14,6 @@ const worker = setupWorker(...handlers)
 //
 // 仕方がないので、ここでは諦めて await しないことにしている。
 // msw の初期化よりも前にリクエストが発生しないことを祈りましょう。
-worker.start()
+worker.start({
+  onUnhandledRequest: 'bypass',
+})

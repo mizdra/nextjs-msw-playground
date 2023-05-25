@@ -3,4 +3,5 @@ import { handlers } from './handler'
 
 setupServer(...handlers)
   .listen({
+    onUnhandledRequest: 'bypass',
   })
