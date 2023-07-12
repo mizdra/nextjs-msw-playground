@@ -12,13 +12,13 @@
     "@types/node": "20.2.3",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
-    "next": "13.4.3",
+    "next": "13.4.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "msw": "^0.0.0-fetch.rc-14",
+    "msw": "0.0.0-fetch.rc-15",
     "node-fetch": "^2.6.11"
   },
   "msw": {

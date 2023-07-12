@@ -18,6 +18,11 @@ export default function Home(props: InferGetServerSidePropsType<typeof getServer
 }
 
 export const getServerSideProps = (async () => {
+  const { server } = await import('../lib/msw/server')
+  server.listen({
+    onUnhandledRequest: 'bypass',
+  });
+
   // サーバーサイドから実行される GraphQL リクエストを雑に書いておく
   const res = await fetch('http://localhost:3000/api/graphql', {
     method: 'POST',
