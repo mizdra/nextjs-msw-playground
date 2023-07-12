@@ -13,11 +13,7 @@ import type { AppProps } from 'next/app'
 // ところで何故かこれでも、`next dev` した直後の初期のリクエストで msw でレスポンスがモックされない問題がある。
 // 恐らく https://github.com/mswjs/msw/issues/1340 に関連する問題ではないかと思われるが、詳細は不明。
 if (process.env.NODE_ENV === 'development') {
-  if (typeof window === 'undefined') {
-    require('../lib/msw/initialize-server')
-  } else {
-    require('../lib/msw/initialize-browser')
-  }
+  require('../lib/msw/initialize')
 }
 
 export default function App({ Component, pageProps }: AppProps) {
